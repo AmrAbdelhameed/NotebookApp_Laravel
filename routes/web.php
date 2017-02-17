@@ -25,3 +25,8 @@ Route::get('/notes/{id}/delete', 'HomeController@delete_post');
 
 Route::get('/notes/{id}/edit','HomeController@edit');
 Route::post('/edit_post/{id}','HomeController@update');
+
+Route::get('/notes/{id}','HomeController@show_details');
+
+Route::get('/{name}/profile','HomeController@profile_data');
+

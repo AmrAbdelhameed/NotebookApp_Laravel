@@ -13,7 +13,8 @@
                     <div class="panel-body">
 
                         @foreach($user_data as $post)
-                            <p>{{ $post->content }}
+                            <p>
+                                <a href="notes/{{ $post->id }}">{{ $post->content }}</a>
                                 <a href="notes/{{ $post->id }}/delete" class="pull-right" style="margin-left: 10px">Delete</a>
                                 <a href="notes/{{ $post->id }}/edit" class="pull-right"> Edit </a>
                             </p>

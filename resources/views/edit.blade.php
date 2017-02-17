@@ -13,8 +13,8 @@
                     <div class="panel-heading">Update Post of {{ Auth::user()->name }}</div>
 
                     <div class="panel-body">
-                        @foreach($posts as $post)
-                            <form class="form-horizontal" role="form" method="post" action="/edit_post/{{$post->id}}">
+                        @foreach($notes as $note)
+                            <form class="form-horizontal" role="form" method="post" action="/edit_post/{{$note->id}}">
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                                 <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
@@ -22,7 +22,7 @@
 
                                     <div class="col-md-6">
 
-                                        <input id="email" type="text" value="{{$post->content}}" class="form-control"
+                                        <input id="email" type="text" value="{{$note->content}}" class="form-control"
                                                name="content" required
                                                autofocus>
 
