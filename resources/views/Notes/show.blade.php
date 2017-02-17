@@ -12,11 +12,9 @@
                     <div class="panel-heading">This Note</div>
                     <div class="panel-body">
 
-                        @foreach($notes as $note)
-                            <p> ID : {{$note->id}}</p>
-                            <p> Content : {{$note->content}}</p>
-                            <p> User ID : {{$note->user_id}}</p>
-                        @endforeach
+                        <p> ID : {{$notes->id}}</p>
+                        <p> Content : {{$notes->content}}</p>
+                        <p> User ID : {{$notes->user_id}}</p>
 
                     </div>
                 </div>

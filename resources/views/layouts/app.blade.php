@@ -67,7 +67,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="/{{ Auth::user()->name }}/profile">
+                                    <a href="/{{ Auth::user()->id }}/profile">
                                         Your Profile
                                     </a>
                                 </li>

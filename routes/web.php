@@ -28,5 +28,5 @@ Route::post('/edit_post/{id}','HomeController@update');
 
 Route::get('/notes/{id}','HomeController@show_details');
 
-Route::get('/{name}/profile','HomeController@profile_data');
+Route::get('/{id}/profile','HomeController@profile_data');
 

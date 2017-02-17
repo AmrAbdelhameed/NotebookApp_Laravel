@@ -12,11 +12,9 @@
                     <div class="panel-heading">Your Data</div>
                     <div class="panel-body">
 
-                        @foreach($notes as $note)
-                            <p> Your ID : {{$note->id}}</p>
-                            <p> Your Name : {{$note->name}}</p>
-                            <p> Your Email : {{$note->email}}</p>
-                        @endforeach
+                        <p> Your ID : {{$data->id}}</p>
+                        <p> Your Name : {{$data->name}}</p>
+                        <p> Your Email : {{$data->email}}</p>
 
                     </div>
                 </div>

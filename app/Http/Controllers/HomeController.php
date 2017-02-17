@@ -43,7 +43,9 @@ class HomeController extends Controller
 
     public function edit($id)
     {
-        $notes = Note::where('id', '=', $id)->get();
+        //$notes = Note::where('id', '=', $id)->get();
+
+        $notes = Auth::user()->notes->find($id);
         return view('edit', compact('notes'));
     }
 
@@ -51,28 +53,32 @@ class HomeController extends Controller
     {
         $content = $request->input('content');
 
-        Note::where('id', $id)
-            ->update(['content' => $content]);
+        $notes = Auth::user()->notes->find($id);
+
+        $notes->update(['content' => $content]);
 
         return redirect('home');
     }
 
     public function delete_post($id)
     {
-        $note = Note::find($id);
+        $note = Auth::user()->notes->find($id);
+
         $note->delete();
+
         return redirect('home');
     }
 
     public function show_details($id)
     {
-        $notes = Note::where('id', '=', $id)->get();
+        $notes = Auth::user()->notes->find($id);
+
         return view('Notes.show', compact('notes'));
     }
 
-    public function profile_data($name)
+    public function profile_data($id)
     {
-        $notes = User::where('name', '=', $name)->get();
-        return view('profile', compact('notes'));
+        $data = Auth::user()->find($id);
+        return view('profile', compact('data'));
     }
 }

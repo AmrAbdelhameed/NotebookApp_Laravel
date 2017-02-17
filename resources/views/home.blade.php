@@ -37,7 +37,7 @@
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                             <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                                <label for="email" class="col-md-4 control-label">Add New Post</label>
+                                <label for="email" class="col-md-4 control-label">Add New Note</label>
 
                                 <div class="col-md-6">
                                     <input id="email" type="text" class="form-control" name="content" required
@@ -54,7 +54,7 @@
                             <div class="form-group">
                                 <div class="col-md-8 col-md-offset-4">
                                     <button type="submit" name="AddPost" class="btn btn-primary">
-                                        Add Post
+                                        Add Note
                                     </button>
                                 </div>
                             </div>
