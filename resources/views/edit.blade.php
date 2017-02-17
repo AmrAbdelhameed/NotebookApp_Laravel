@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('header')
-    <title>Edit Post</title>
+    <title>Edit Note</title>
 @endsection
 
 @section('content')
@@ -13,34 +13,34 @@
                     <div class="panel-heading">Update Note of {{ Auth::user()->name }}</div>
 
                     <div class="panel-body">
-                            <form class="form-horizontal" role="form" method="post" action="/edit_post/{{$notes->id}}">
-                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                        <form class="form-horizontal" role="form" method="post" action="/edit_post/{{$notes->id}}">
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-                                <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                                    <label for="content" class="col-md-4 control-label">Update Note</label>
+                            <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                                <label for="content" class="col-md-4 control-label">Update Note</label>
 
-                                    <div class="col-md-6">
+                                <div class="col-md-6">
 
-                                        <input id="email" type="text" value="{{$notes->content}}" class="form-control"
-                                               name="content" required
-                                               autofocus>
+                                    <input id="email" type="text" value="{{$notes->content}}" class="form-control"
+                                           name="content" required
+                                           autofocus>
 
-                                        @if ($errors->has('email'))
-                                            <span class="help-block">
+                                    @if ($errors->has('email'))
+                                        <span class="help-block">
                                         <strong>{{ $errors->first('email') }}</strong>
                                     </span>
-                                        @endif
-                                    </div>
+                                    @endif
                                 </div>
+                            </div>
 
-                                <div class="form-group">
-                                    <div class="col-md-8 col-md-offset-4">
-                                        <button type="submit" name="UpdatePost" class="btn btn-primary">
-                                            Update Note
-                                        </button>
-                                    </div>
+                            <div class="form-group">
+                                <div class="col-md-8 col-md-offset-4">
+                                    <button type="submit" name="UpdatePost" class="btn btn-primary">
+                                        Update Note
+                                    </button>
                                 </div>
-                            </form>
+                            </div>
+                        </form>
                     </div>
 
                 </div>
