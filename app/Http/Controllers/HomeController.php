@@ -21,24 +21,23 @@ class HomeController extends Controller
 
     public function index()
     {
-        $user_data = Note::where('user_id', '=', Auth::user()->id)->get();
-        return view('home', compact('user_data'));
+        $id = Auth::user()->id;
+        $user_data = Note::where('user_id', '=', $id)->get();
+        //return view('home', compact('user_data'));
+        return $user_data;
     }
 
     public function insert_post(Request $request)
     {
         $content = $request->input('content');
-        $check_data = Note::where('content', '=', $content)->get();
-        if (count($check_data) > 0) {
-            echo "Failed Wrong Data Passed";
-        } else {
-            $user_id = Auth::user()->id;
-            $note = new Note;
-            $note->content = $content;
-            $note->user_id = $user_id;
-            $note->save();
-            return redirect('home');
-        }
+        $user_id = Auth::user()->id;
+
+        $note = new Note;
+        $note->content = $content;
+        $note->user_id = $user_id;
+        $note->save();
+
+        return redirect('home');
     }
 
     public function edit($id)
