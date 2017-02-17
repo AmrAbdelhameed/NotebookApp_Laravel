@@ -21,10 +21,11 @@ class HomeController extends Controller
 
     public function index()
     {
-        $id = Auth::user()->id;
-        $user_data = Note::where('user_id', '=', $id)->get();
-        //return view('home', compact('user_data'));
-        return $user_data;
+        $user_ = Auth::user();
+
+        $user_data = $user_->notes;
+
+        return view('home', compact('user_data'));
     }
 
     public function insert_post(Request $request)
