@@ -43,8 +43,6 @@ class HomeController extends Controller
 
     public function edit($id)
     {
-        //$notes = Note::where('id', '=', $id)->get();
-
         $notes = Auth::user()->notes->find($id);
         return view('edit', compact('notes'));
     }
