@@ -21,9 +21,9 @@ class HomeController extends Controller
 
     public function index()
     {
-        $user_ = Auth::user();
+        $user_account = Auth::user();
 
-        $user_data = $user_->notes;
+        $user_data = $user_account->notes;
 
         return view('home', compact('user_data'));
     }
@@ -44,6 +44,7 @@ class HomeController extends Controller
     public function edit($id)
     {
         $notes = Auth::user()->notes->find($id);
+
         return view('edit', compact('notes'));
     }
 
@@ -77,6 +78,7 @@ class HomeController extends Controller
     public function profile_data($id)
     {
         $data = Auth::user()->find($id);
+
         return view('profile', compact('data'));
     }
 }
